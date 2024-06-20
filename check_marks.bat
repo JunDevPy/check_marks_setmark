@@ -32,7 +32,6 @@ IF NOT "%file%"=="" (
                 :: Вывод !cod! используется для отладки
                 REM echo "CYCLE WITH REPLACEMENT --- !cod! ---"
             )
-            REM "%SET_POSTGRES_BIN%\psql.exe" -v gtin='!cod!' -h localhost -p 5432 -U postgres --no-password --dbname set_mark -x -f "C:\query_marks.sql"> NUL
 			"%SET_POSTGRES_BIN%\psql.exe" -v gtin='!cod!' -h localhost -p 5432 -U postgres --no-password --dbname set_mark -x -f "%~dp0\query_marks.sql"> NUL
             :: Задержка -Milliseconds 200 в милисекундах после выполнения запроса
             set "delay=300" & @powershell -Command "Start-Sleep -Milliseconds %delay%" > NUL
